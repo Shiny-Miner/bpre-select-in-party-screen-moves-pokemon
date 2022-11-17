@@ -69,13 +69,11 @@
 #include "constants/songs.h"
 #include "constants/sound.h"
 
-static void MoveCursorToConfirm(void);
-static u16 PartyMenuButtonHandler(s8 *slotPtr);
-static s8 *GetCurrentPartySlotPtr(void);
-static void HandleChooseMonSelection(u8 taskId, s8 *slotPtr);
-static void HandleChooseMonCancel(u8 taskId, s8 *slotPtr);
-
-static EWRAM_DATA struct PartyMenuInternal *sPartyMenuInternal = NULL;
+extern void MoveCursorToConfirm(void);
+extern u16 PartyMenuButtonHandler(s8 *slotPtr);
+extern s8 *GetCurrentPartySlotPtr(void);
+extern void HandleChooseMonSelection(u8 taskId, s8 *slotPtr);
+extern void HandleChooseMonCancel(u8 taskId, s8 *slotPtr);
 
 struct PartyMenuInternal
 {
@@ -93,7 +91,7 @@ struct PartyMenuInternal
     s16 data[16];
 };
 
-void Task_HandleChooseMonInput(u8 taskId)
+void Task_HandleChooseMonInput
 {
     if (!gPaletteFade.active && sub_80BF748() != TRUE)
     {
@@ -117,7 +115,7 @@ void Task_HandleChooseMonInput(u8 taskId)
         case SELECT_BUTTON:
             DestroyTask(taskId);
             break;
-        }
+            }
     }
 }
 
@@ -174,7 +172,7 @@ void u16 PartyMenuButtonHandler
     {
 }
 
-static void HandleChooseMonSelection(u8 taskId, s8 *slotPtr)
+void HandleChooseMonSelection(u8 taskId, s8 *slotPtr)
 {
     if (*slotPtr == SLOT_CONFIRM)
         gPartyMenu.task(taskId); // task here is always Task_ValidateChosenMonsForBattle
@@ -241,7 +239,7 @@ static void HandleChooseMonSelection(u8 taskId, s8 *slotPtr)
     }
 }
 
-static void HandleChooseMonCancel(u8 taskId, s8 *slotPtr)
+void HandleChooseMonCancel(u8 taskId, s8 *slotPtr)
 {
     switch (gPartyMenu.action)
     {
@@ -273,7 +271,7 @@ static void HandleChooseMonCancel(u8 taskId, s8 *slotPtr)
     }
 }
 
-static void MoveCursorToConfirm(void)
+void MoveCursorToConfirm(void)
 {
     AnimatePartySlot(gPartyMenu.slotId, 0);
     gPartyMenu.slotId = SLOT_CONFIRM;
