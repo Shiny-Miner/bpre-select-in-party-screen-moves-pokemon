@@ -1,6 +1,6 @@
 ## Press Select Button In Party Now Screen Swaps Pokemon 
 
-On the Fight, Bag, Pokemon, Run menu, pressing B will move the cursor to Run as long as the battle type isn't BATTLE_TYPE_TRAINER.
+Pressing the select button in the party menu allows access to the switch function without having to go into a menu.
 
 ![](bpre-select-in-party-menu-moves-pokemon.gif)
 
